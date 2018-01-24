@@ -20,4 +20,9 @@ public class TestController {
     public String getTime(){
         return testService.getTime();
     }
+
+    @RequestMapping("index")
+    public String index(){
+        return "index";
+    }
 }

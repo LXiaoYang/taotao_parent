@@ -11,6 +11,13 @@
     <name>taotao_manager_service</name>
     <url>http://maven.apache.org</url>
     <dependencies>
+
+        <dependency>
+            <groupId>cn.csdn</groupId>
+            <artifactId>taotao_manager_pojo</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
         <!-- Mybatis -->
         <dependency>
             <groupId>org.mybatis</groupId>
@@ -37,12 +44,6 @@
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>${mysql.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>cn.csdn</groupId>
-            <artifactId>taotao_manager_dao</artifactId>
-            <version>1.0-SNAPSHOT</version>
         </dependency>
 
         <dependency>
@@ -119,6 +120,11 @@
         <dependency>
             <groupId>cn.csdn</groupId>
             <artifactId>taotao_manager_inter</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>cn.csdn</groupId>
+            <artifactId>taotao_manager_dao</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>

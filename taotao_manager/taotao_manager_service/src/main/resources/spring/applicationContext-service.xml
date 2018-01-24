@@ -19,4 +19,5 @@
 
     <!-- 声明需要暴露的服务接口 -->
     <dubbo:service interface="cn.csdn.inter.ITestService" ref="testServiceImpl"/>
+    <dubbo:service interface="cn.csdn.inter.IItemsService" ref="itemServiceImpl"/>
 </beans>
