@@ -42,8 +42,8 @@
 	<dubbo:application name="taotao_web"/>
 	<dubbo:registry protocol="zookeeper" address="192.168.25.133:2181"/>
 
-	<dubbo:protocol name="dubbo" port="20880"/>
-
 	<dubbo:reference interface="cn.csdn.inter.ITestService" id="testService"/>
 	<dubbo:reference interface="cn.csdn.inter.IItemsService" id="itemService" />
+
+	<dubbo:reference interface="cn.csdn.inter.ICatagoryService" id="iCataService"/>
 </beans>

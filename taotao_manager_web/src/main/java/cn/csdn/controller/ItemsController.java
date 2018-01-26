@@ -2,8 +2,11 @@ package cn.csdn.controller;
 
 import cn.csdn.common.pojo.Item;
 import cn.csdn.common.result.TaotaoResult;
+import cn.csdn.inter.ICatagoryService;
 import cn.csdn.inter.IItemsService;
+import cn.csdn.pojo.TbContentCategory;
 import cn.csdn.pojo.TbItem;
+import cn.csdn.pojo.TbItemCat;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,11 +19,14 @@ import java.util.List;
 import java.util.Map;
 
 @Controller
-@SuppressWarnings("all")
+ @SuppressWarnings("all")
 public class ItemsController {
 
     @Resource
     private IItemsService itemsService;
+
+    @Resource
+    private ICatagoryService catagoryService;
 
     //展示商品列表
     @RequestMapping("/{page}")
@@ -62,4 +68,23 @@ public class ItemsController {
         return new TaotaoResult("200");
     }
 
+//    /content/category/list  查询分类功能.....
+    @ResponseBody
+    @RequestMapping("/content/category/list")  //如果没有传id,就是父节点,,
+    public List<Item> findItemCat(@RequestParam(value = "id",defaultValue = "0") Long parentId){
+
+        return catagoryService.findItemCat(parentId);
+    }
+
+//    /content/category/create  //增加分类的方法
+    @RequestMapping("/content/category/create")
+    @ResponseBody
+    public TaotaoResult createCatagory(TbContentCategory category){
+
+        TbContentCategory catagory = catagoryService.createCatagory(category);
+        TaotaoResult result = new TaotaoResult("200");
+        result.setData(catagory);
+
+        return result;
+    }
 }

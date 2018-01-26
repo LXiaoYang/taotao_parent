@@ -8,10 +8,15 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>taotao_manager_portal</artifactId>
+    <packaging>pom</packaging>
 
-    <name>Maven</name>
+    <name>taotao_manager_content</name>
     <url>http://maven.apache.org/</url>
     <inceptionYear>2001</inceptionYear>
+    <modules>
+        <module>taotao_portal_service</module>
+        <module>taotao_portal_inter</module>
+    </modules>
 
     <distributionManagement>
         <site>
@@ -24,6 +29,26 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
+    <dependencies>
+
+        <dependency>
+            <groupId>cn.csdn</groupId>
+            <artifactId>taotao_common</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>cn.csdn</groupId>
+            <artifactId>taotao_manager_dao</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>cn.csdn</groupId>
+            <artifactId>taotao_manager_pojo</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
     <build>
         <plugins>
             <plugin>
