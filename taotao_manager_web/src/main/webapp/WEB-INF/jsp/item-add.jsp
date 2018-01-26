@@ -114,6 +114,11 @@
 		$.post("/item/save",$("#itemAddForm").serialize(), function(data){
 			if(data.status == 200){
 				$.messager.alert('提示','新增商品成功!');
+
+				//刷新页面
+//                window.location.reload();
+				//清空表单数据
+                $('#itemAddForm').form('clear');
 			}
 		});
 	}

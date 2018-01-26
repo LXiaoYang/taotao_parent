@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	   xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	    http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+        http://www.springframework.org/schema/mvc 
+        http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-4.2.xsd
+		http://code.alibabatech.com/schema/dubbo
+		http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+	<!-- 组件扫描被@controller注解修饰的类，作用就是相当于是一个springmvc的组件 -->
+	
+	<context:component-scan base-package="cn.csdn.controller"></context:component-scan>
+	
+	<mvc:annotation-driven />
+	
+	<!--资源解析器-->
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/jsp/"></property>
+		<property name="suffix" value=".jsp"></property>
+	</bean>
+
+	<!--应用dubbo服务-->
+	<dubbo:application name="taotao_portal_web"/>
+	<dubbo:registry protocol="zookeeper" address="192.168.25.133:2181"/>
+
+	<dubbo:protocol name="dubbo" port="20881"/>
+
+	<!--<dubbo:reference interface="cn.csdn.inter.ITestService" id="testService"/>-->
+</beans>

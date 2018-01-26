@@ -19,12 +19,20 @@
 	
 	<mvc:annotation-driven />
 	
-
+	
+	<mvc:resources mapping="/js/**" location="/js/"></mvc:resources>
+	<mvc:resources mapping="/css/**" location="/css/"></mvc:resources>
 	
 	<!--资源解析器-->
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/jsp/"></property>
 		<property name="suffix" value=".jsp"></property>
+	</bean>
+
+
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSize" value="5242880"></property>
+		<property name="defaultEncoding" value="utf-8"></property>
 	</bean>
 
 

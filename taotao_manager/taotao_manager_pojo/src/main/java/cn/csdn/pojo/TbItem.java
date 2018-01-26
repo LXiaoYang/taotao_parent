@@ -12,9 +12,9 @@ public class TbItem implements Serializable {
 
     private Long price;
 
-    private Integer num;
+    private Integer num; //库存
 
-    private String barcode;
+    private String barcode; //条形码
 
     private String image;
 
