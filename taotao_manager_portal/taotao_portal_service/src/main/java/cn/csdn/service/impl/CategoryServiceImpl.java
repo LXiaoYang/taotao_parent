@@ -57,12 +57,13 @@ public class CategoryServiceImpl implements ICatagoryService {
        contentCatagory.setStatus(1);
        contentCatagory.setUpdated(new Date());
 
+       //插入数据
        tbContentCategoryMapper.insert(contentCatagory);
 
 
        //根据父id 修改父id 状态
        TbContentCategoryExample tbContentCategoryExample = new TbContentCategoryExample();
-       tbContentCategoryExample.createCriteria().andParentIdEqualTo(contentCatagory.getId());
+       tbContentCategoryExample.createCriteria().andIdEqualTo(contentCatagory.getParentId());
        List<TbContentCategory> tbContentCategories = tbContentCategoryMapper.selectByExample(tbContentCategoryExample);
 
        if(tbContentCategories != null && tbContentCategories.size() > 0){
